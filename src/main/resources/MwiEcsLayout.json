@@ -1,0 +1,80 @@
+{
+    "@timestamp": {
+      "$resolver": "timestamp",
+      "pattern": {
+        "format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+        "timeZone": "UTC"
+      }
+    },
+    "eai": "3541247",
+    "host.hostname": "${hostName}",
+    "log.level": {
+      "$resolver": "level",
+      "field": "name"
+    },
+    "message": {
+      "$resolver": "message"
+    },
+    "process.thread.name": {
+      "$resolver": "thread",
+      "field": "name"
+    },
+    "process.pid": {
+      "$resolver": "thread",
+      "field": "id"
+    },
+    "log.logger": {
+      "$resolver": "logger",
+      "field": "name"
+    },
+    "trace.id": {
+      "$resolver": "mdc",
+      "key": "traceId"
+    },
+    "span.id": {
+      "$resolver": "mdc",
+      "key": "spanId"
+    },
+    "http.incoming.request.url": {
+      "$resolver": "mdc",
+      "key": "http.incoming.request.url"
+    },
+    "http.request.method": {
+      "$resolver": "mdc",
+      "key": "http.request.method"
+    },
+    "http.request.body.content": {
+      "$resolver": "mdc",
+      "key": "http.request.body.content"
+    },
+    "http.response.status_code": {
+      "$resolver": "mdc",
+      "key": "http.response.status_code"
+    },
+    "http.response.body.content": {
+      "$resolver": "mdc",
+      "key": "http.response.body.content"
+    },
+    "http.request.headers.Form-Source": {
+      "$resolver": "mdc",
+      "key": "http.request.headers.Form-Source"
+    },
+    "tags": {
+      "$resolver": "ndc"
+    },
+    "error.type": {
+      "$resolver": "exception",
+      "field": "className"
+    },
+    "error.message": {
+      "$resolver": "exception",
+      "field": "message"
+    },
+    "error.stack_trace": {
+      "$resolver": "exception",
+      "field": "stackTrace",
+      "stackTrace": {
+        "stringified": true
+      }
+    }
+  }
