@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" name="MWI_IBIS_Service_JSONLoggingConfig">
+    <Properties>
+        <Property name="LOG_DIR">/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleJSONAppender" target="SYSTEM_OUT" follow="true">
+            <JsonTemplateLayout eventTemplateUri="classpath:MwiEcsLayout.json">
+                <EventTemplateAdditionalField key="cloud.project.name" value ="${spring:info.application.name}" />
+            </JsonTemplateLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.example.pushnotification" level="info" additivity="false">
+            <AppenderRef ref="ConsoleJSONAppender" />
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="ConsoleJSONAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

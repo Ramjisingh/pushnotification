@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Push Notification Project
+
+#app.firebase-configuration-file: fedexpushnotification-262e0-firebase-adminsdk-fbsvc-1a4faf4b24.json
+
+info:
+  application:
+    name: ${spring.application.name}
+    description: This is for the push notification and logging demo.
+  organization: Aheer
+  java-version: ${java.version}
+  build-version: 1.0.0
+
