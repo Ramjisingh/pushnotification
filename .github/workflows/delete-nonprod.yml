@@ -1,0 +1,13 @@
+name: Delete Non-Prod deployment
+on:
+  workflow_dispatch:
+    inputs:
+      deployment-name:
+        description: the deployment to delete
+        required: true
+
+jobs:
+  deployments:
+    secrets: inherit
+    with:
+      deployment-name: ${{ inputs.deployment-name }}

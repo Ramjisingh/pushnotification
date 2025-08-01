@@ -111,7 +111,7 @@ public class FCMService {
         data.put(MESSAGE_KEY, request.getMessage());
         data.put(DEVICE_ID_KEY, "IT~CT1~~MC67NA");
         data.put(CONSIGNMENT_KEY, "880967282769");
-        data.put(SCREENID, "fedex://addconsignment/");
+        data.put(SCREENID, "push://addconsignment/");
         return data;
 
     }
