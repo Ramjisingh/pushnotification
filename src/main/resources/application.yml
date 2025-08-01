@@ -1,7 +1,19 @@
 spring:
-  application:
-    name: Push Notification Project
+  application.name: push-notification-services
+  threads:
+    virtual.enabled: true
+  #Eventhub config
+  kafka:
+    bootstrap-servers: ${EVENTHUB_BOOTSTRAP_SERVER}
+    topics:
+      logon-name: mwi.device
+    properties:
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: 'org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="${EVENTHUB_CONNECTION_STRING}";'
+      security.protocol: SASL_SSL
 
+server:
+  port: 8080
 #app.firebase-configuration-file: fedexpushnotification-262e0-firebase-adminsdk-fbsvc-1a4faf4b24.json
 
 info:
@@ -12,3 +24,28 @@ info:
   java-version: ${java.version}
   build-version: 1.0.0
 
+# Enable Spring Boot Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,loggers,prometheus
+    info:
+      enabled: true
+      env:
+        enabled: true
+
+#swagger doc config
+springdoc:
+  api-docs:
+    path: /push-notification-services/v3/api-docs
+    version: OPENAPI_3_0
+  swagger-ui:
+    path: /push-notification-services/swagger-ui.html
+    disable-swagger-default-url: true
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: INFO

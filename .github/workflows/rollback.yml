@@ -1,0 +1,15 @@
+name: Rollback Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: The commit sha matching the deployment to revert to.
+        required: true
+
+jobs:
+  rollback:
+    with:
+      kubernetes-cluster: rxi-001
+      kubernetes-namespace: push-dev
+      sha: ${{ inputs.sha }}
+    secrets: inherit
