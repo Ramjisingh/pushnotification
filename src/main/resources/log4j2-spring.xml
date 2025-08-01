@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="info" name="MWI_IBIS_Service_JSONLoggingConfig">
+<Configuration status="info" name="PUSH_Notification_Service_JSONLoggingConfig">
     <Properties>
         <Property name="LOG_DIR">/logs</Property>
     </Properties>
