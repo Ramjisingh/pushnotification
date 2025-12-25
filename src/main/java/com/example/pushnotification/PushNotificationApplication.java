@@ -14,7 +14,6 @@ public class PushNotificationApplication {
   public static void main(String[] args) {
     SpringApplication.run(PushNotificationApplication.class, args);
 
-
   }
 
 }
